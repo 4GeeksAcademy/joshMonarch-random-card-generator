@@ -2,10 +2,9 @@ import "bootstrap";
 import "./style.css";
 
 const randNum = (min, max) => Math.floor(Math.random() * (max-min)) + min;
-const randColor = () => Math.random() > 0.5 ? "red" : "black";
 
 function getNumber() {
-  const num = randNum(1, 13);
+  const num = randNum(1, 14);
   switch(num) {
     case 1:  return 'A';
     case 11: return 'J';
@@ -16,7 +15,7 @@ function getNumber() {
 }
 
 function randSuit() {
-  switch(randNum(1,4)) {
+  switch(randNum(1,5)) {
     case 1: return ["&hearts;", "heart"];
     case 2: return ["&spades;", "spade"];
     case 3: return ["&clubs;", "club"];
@@ -47,19 +46,18 @@ function startTimer() {
 function generateCard() {
   const [symbol, suit] = randSuit();
   let cardHTML = `
-    <div class="card ${suit}">
+    <div class="card">
         <div class="card-inner">
-          <div class="card-front ">
-                <span class="icon">${symbol}</span>
+          <div class="card-front">
+                <span class="icon ${suit}">${symbol}</span>
                 <span class="number">${getNumber()}</span>
-                <span class="icon">${symbol}</span>
+                <span class="icon ${suit}">${symbol}</span>
           </div>
           <div class="card-back"></div>
         </div>
       </div>
   `;
   document.querySelector(".card-container").innerHTML = cardHTML;
-  document.querySelector(".card-front").style.color = randColor();
 }
 
 window.onload = function() {

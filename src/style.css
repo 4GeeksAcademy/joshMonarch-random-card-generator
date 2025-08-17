@@ -35,13 +35,13 @@ body {
     overflow: hidden;
 }
 
-.spades,
-.clubs {
+.spade,
+.club {
     color: black;
 }
 
-.hearts,
-.diamonds {
+.heart,
+.diamond {
     color: red;
 }
 
